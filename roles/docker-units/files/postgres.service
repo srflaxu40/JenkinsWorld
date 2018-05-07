@@ -1,0 +1,15 @@
+[Unit]
+Description=Postgres Service
+After=docker.item
+Requires=docker.item
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm --name %p -v /data/:/docker-entrypoint-initdb.d/ -p 5432:5432 %p
+ 
+[Install]
+WantedBy=multi-user.target

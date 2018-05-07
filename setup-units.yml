@@ -1,0 +1,13 @@
+---
+# file: setup-units.yml
+- name: Configure and deploy SystemD units
+  hosts: localhost
+  connection: local
+  remote_user: ubuntu
+  become: yes
+  gather_facts: False
+  roles:
+    #- python
+    #- base-ami
+    - docker-units
+    #- hosts

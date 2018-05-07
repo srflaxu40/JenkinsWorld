@@ -1,0 +1,90 @@
+# task: configure
+
+- name: Log into DockerHub
+  docker_login:
+    username: {{ DOCKER_USERNAME }}
+    password: {{ DOCKER_PASSWORD }}
+
+- name: Setup psql client libs
+  apt:
+    state: present
+    name: "{{ item }}"
+  with_items:
+    - "postgresql-client-common"
+    - "postgresql-client"
+
+- name: Up map count
+  sysctl:
+    name: vm.max_map_count
+    value: 262144
+    state: present
+    reload: yes
+
+- name: Copy unit files
+  copy: 
+    src: elasticsearch.service 
+    dest: /etc/systemd/system/elasticsearch.service 
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Copy unit files
+  copy: 
+    src: kibana.service 
+    dest: /etc/systemd/system/kibana.service 
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Copy unit files
+  copy: 
+    src: postgres.service 
+    dest: /etc/systemd/system/postgres.service 
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Copy unit files
+  copy: 
+    src: rabbitmq.service 
+    dest: /etc/systemd/system/rabbitmq.service 
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Copy unit files
+  copy: 
+    src: statengine.service 
+    dest: /etc/systemd/system/statengine.service 
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Copy unit files
+  copy: 
+    src: statengine-ingest-worker.service 
+    dest: /etc/systemd/system/statengine-ingest-worker.service 
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Copy unit files
+  copy: 
+    src: statengine-reporting.service 
+    dest: /etc/systemd/system/statengine-reporting.service
+    owner: root
+    group: root
+
+- name: Enable units
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: True
+  with_items:
+    - "statengine"
+    - "statengine-ingest-worker"
+    - "statengine-reporting"
+    - "kibana"
+    - "elasticsearch"
+    - "rabbitmq"
+    - "postgres"
