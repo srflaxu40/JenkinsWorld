@@ -1,6 +1,7 @@
 # JenkinsWorld
 
-Run, and provision against Amazon's Cloud (AWS).
+Run, and provision Jenkins with examples of bootstrapping jobs as code using init.groovy.d, Job DSL, and Jenkins Pipeline Plugin for 
+bad ass automation.
 
 # Development Setup
 
