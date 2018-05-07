@@ -1,18 +1,5 @@
 # task: configure
 
-- name: Log into DockerHub
-  docker_login:
-    username: {{ DOCKER_USERNAME }}
-    password: {{ DOCKER_PASSWORD }}
-
-- name: Setup psql client libs
-  apt:
-    state: present
-    name: "{{ item }}"
-  with_items:
-    - "postgresql-client-common"
-    - "postgresql-client"
-
 - name: Up map count
   sysctl:
     name: vm.max_map_count
