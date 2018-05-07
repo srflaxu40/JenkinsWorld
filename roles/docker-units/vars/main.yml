@@ -1,0 +1,6 @@
+---
+# Vars
+
+DOCKER_USERNAME: "{{ lookup('env','DOCKER_USERNAME') }}"
+DOCKER_PASSWORD: "{{ lookup('env','DOCKER_PASSWORD') }}"
+DOCKER_EMAIL: "{{ lookup('env','DOCKER_EMAIL') }}"

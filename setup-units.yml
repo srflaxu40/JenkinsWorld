@@ -7,7 +7,4 @@
   become: yes
   gather_facts: False
   roles:
-    #- python
-    #- base-ami
     - docker-units
-    #- hosts

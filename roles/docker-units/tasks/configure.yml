@@ -1,5 +1,20 @@
 # task: configure
 
+
+- name: 'Install pip'
+  apt:
+    name: python-pip
+    state: present
+
+- name: 'Install docker-py'
+  pip:
+    name: docker-py
+    state: present
+
+- name: Log in
+  shell: docker login -u {{ DOCKER_USERNAME }} -p {{ DOCKER_PASSWORD }}
+  become: yes
+
 - name: Up map count
   sysctl:
     name: vm.max_map_count

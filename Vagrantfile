@@ -25,6 +25,18 @@ Vagrant.configure("2") do |config|
 
   config.env.enable #enabled 
 
+$script = <<SCRIPT
+
+rm /etc/environment
+touch /etc/environment
+echo "PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games\"" >> /etc/environment
+
+echo "DOCKER_USERNAME=\"#{ENV['DOCKER_USERNAME']}\"" >> /etc/environment
+echo "DOCKER_PASSWORD=\"#{ENV['DOCKER_PASSWORD']}\"" >> /etc/environment
+echo "P4_SERVER_NAME=\"#{ENV['P4_SERVER_NAME']}\"" >> /etc/environment
+echo "P4PASSWORD=\"#{ENV['P4PASSWORD']}\"" >> /etc/environment
+SCRIPT
+
 $ansible = <<SCRIPT
 sudo apt-get update
 sudo apt-get -y install software-properties-common
@@ -38,6 +50,8 @@ sudo chmod 777 /awx-test
 SCRIPT
 
   #config.vm.provision "file", source: "config/elasticsearch.yml", destination: "elasticsearch.yml"
+
+  config.vm.provision "shell", inline: $script, run: "always"
   config.vm.provision "shell", inline: $ansible
 
   config.vm.provision "file", source: "awx-test/docker-compose.yml", destination: "/awx-test/docker-compose.yml"
