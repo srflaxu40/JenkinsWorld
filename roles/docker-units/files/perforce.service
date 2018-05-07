@@ -9,7 +9,7 @@ TimeoutStartSec=0
 Restart=always
 ExecStartPre=-/usr/bin/docker stop %p
 ExecStartPre=-/usr/bin/docker rm %p
-ExecStart=/usr/bin/docker run --rm --name %p -v /data/:/docker-entrypoint-initdb.d/ -p 5432:5432 %p
+ExecStart=/usr/bin/docker run --rm --name %p -e SERVER_NAME=${P4_SERVER_NAME} -e P4USER=admin -e P4PASSWD=${P4PASSWD} -p 1666:1666 %p
  
 [Install]
 WantedBy=multi-user.target

@@ -22,56 +22,9 @@
 
 - name: Copy unit files
   copy: 
-    src: elasticsearch.service 
-    dest: /etc/systemd/system/elasticsearch.service 
+    src: perforce.service 
+    dest: /etc/systemd/system/perforce.service 
     mode: 0755
-    owner: root
-    group: root
-
-- name: Copy unit files
-  copy: 
-    src: kibana.service 
-    dest: /etc/systemd/system/kibana.service 
-    mode: 0755
-    owner: root
-    group: root
-
-- name: Copy unit files
-  copy: 
-    src: postgres.service 
-    dest: /etc/systemd/system/postgres.service 
-    mode: 0755
-    owner: root
-    group: root
-
-- name: Copy unit files
-  copy: 
-    src: rabbitmq.service 
-    dest: /etc/systemd/system/rabbitmq.service 
-    mode: 0755
-    owner: root
-    group: root
-
-- name: Copy unit files
-  copy: 
-    src: statengine.service 
-    dest: /etc/systemd/system/statengine.service 
-    mode: 0755
-    owner: root
-    group: root
-
-- name: Copy unit files
-  copy: 
-    src: statengine-ingest-worker.service 
-    dest: /etc/systemd/system/statengine-ingest-worker.service 
-    mode: 0755
-    owner: root
-    group: root
-
-- name: Copy unit files
-  copy: 
-    src: statengine-reporting.service 
-    dest: /etc/systemd/system/statengine-reporting.service
     owner: root
     group: root
 
@@ -81,10 +34,4 @@
     state: started
     enabled: True
   with_items:
-    - "statengine"
-    - "statengine-ingest-worker"
-    - "statengine-reporting"
-    - "kibana"
-    - "elasticsearch"
-    - "rabbitmq"
-    - "postgres"
+    - "perforce"
