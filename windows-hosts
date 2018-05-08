@@ -1,1 +1,1 @@
-johnson-windows ansible_host=10.0.0.84 ansible_connection=winrm ansible_user=johnson-windows ansible_port=5986 ansible_winrm_server_cert_validation=ignore
+jenkins-master ansible_host=10.0.0.158 ansible_connection=winrm ansible_user=jenkins-master ansible_port=5986 ansible_winrm_server_cert_validation=ignore
