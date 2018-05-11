@@ -70,7 +70,6 @@ SCRIPT
 
   config.vm.provision :docker_compose, yml: "/awx-test/docker-compose.yml", run: "always"
 
-  # Requires restart to work
   config.vm.provision :docker_compose, yml: "/awx-test/docker-compose.yml", run: "restart"
 
   config.vm.provision "docker" do |d|
@@ -84,6 +83,12 @@ SCRIPT
   config.vm.provision "file", source: "roles", destination: "roles"
 
   config.vm.provision "ansible_local" do |ansible|
+
+    ansible.extra_vars = {
+        DOCKER_USERNAME: ENV['DOCKER_USERNAME'],
+        DOCKER_PASSWORD: ENV['DOCKER_PASSWORD']
+    }
+
     ansible.playbook = "setup-units.yml"
     ansible.tags     = ["configure", "deploy"]
     ansible.verbose  = true
@@ -94,16 +99,17 @@ SCRIPT
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
   # via 127.0.0.1 to disable public access
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "10.0.2.15"
+  config.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 1666, host: 1666, host_ip: "127.0.0.1"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  #config.vm.network "public_network", bridge: "eth0"
+  #config.vm.network "public_network"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is

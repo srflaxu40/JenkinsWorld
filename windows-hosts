@@ -1,1 +1,2 @@
-jenkins-master ansible_host=10.0.0.158 ansible_connection=winrm ansible_user=jenkins-master ansible_port=5986 ansible_winrm_server_cert_validation=ignore
+jenkins-master ansible_host=10.0.0.98 ansible_connection=winrm ansible_user=jenkins-master ansible_port=5986 ansible_winrm_server_cert_validation=ignore
+jenkins-slave ansible_host=10.0.0.153 ansible_connection=winrm ansible_user=jenkins-slave ansible_port=5986 ansible_winrm_server_cert_validation=ignore

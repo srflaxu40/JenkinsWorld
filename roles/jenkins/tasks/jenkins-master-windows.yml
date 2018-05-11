@@ -1,4 +1,4 @@
-# jenkins-windows.yml
+# jenkins-master-windows.yml
 # installs jenkins master on windows
 
 - name: Install multiple packages

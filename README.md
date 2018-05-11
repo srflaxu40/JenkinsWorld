@@ -80,3 +80,15 @@ pip install requirements.txt
 ```
 ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@" jenkins-master.yml --tags="master" -vvv
 ```
+
+## Quick Commands:
+* Provision Jenkins Master:
+```
+ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@" jenkins-master.yml --tags="master" -vvv
+```
+
+* Provision Jenkins Slave:
+```
+ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@ MASTER_IP=10.0.0.98" jenkins-slave.yml --tags="slave" -vvv
+```
+

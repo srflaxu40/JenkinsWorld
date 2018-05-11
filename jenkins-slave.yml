@@ -1,0 +1,7 @@
+---
+# file: jenkins-slave.yml
+- name: Configure and deploy Jenkins Slave
+  hosts: "{{ target }}"
+  gather_facts: True
+  roles:
+    - jenkins
