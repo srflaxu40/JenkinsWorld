@@ -21,12 +21,6 @@
   win_chocolatey:
     name: p4
 
-- name: Copy Agent JAR file to connect to master
-  win_copy:
-    force: yes 
-    src: agent.jar
-    dest: C:\Program Files (x86)\Java\agent.jar
-
 - name: Update PATH for Java
   win_environment:
     state: present
@@ -34,8 +28,14 @@
     value: C:\Program Files (x86)\Java\jre1.8.0_171\bin
     level: machine
 
+ 
+- name: Copy Slave ps1 script over
+  win_template:
+    src: slave-connect-02.ps1
+    dest: C:\Program Files (x86)\Java\slave-connect.ps1
+
+
 - name: Run jar and connect to Jenkins master
-  win_shell: java.exe -jar agent.jar -jnlpUrl http://{{ MASTER_IP }}:{{ MASTER_PORT }}/computer/{{ AGENT_NAME }}/slave-agent.jnlp
+  win_shell:  .\slave-connect.ps1
   args:
     chdir: C:\Program Files (x86)\Java\
- 

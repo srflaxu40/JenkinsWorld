@@ -81,6 +81,24 @@ pip install requirements.txt
 ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@" jenkins-master.yml --tags="master" -vvv
 ```
 
+## Jenkins Master:
+* Environment variables to set:
+  - MASTER_HOSTNAME - The hostname / Domain Name / IP of your Jenkins Master.
+  - AGENT_NAME - The name of your Jenkins Agent; this must be added to your master via Configure -> Manage Nodes -> Add Agent.
+  - ansible_password - The password to your WinRM enabled Machine.
+  - target - The name of the host you are targeting in your inventory.
+  - (optional) MASTER_PORT - This defaults to 8080.
+  - (optional) ansible_user - Can be overridden on the CML.
+
+## Jenkins Slave:
+* Environment variables to set:
+  - MASTER_HOSTNAME - The hostname / Domain Name / IP of your Jenkins Master.
+  - AGENT_NAME - The name of your Jenkins Agent; this must be added to your master via Configure -> Manage Nodes -> Add Agent.
+  - ansible_password - The password to your WinRM enabled Machine.
+  - target - The name of the host you are targeting in your inventory.
+  - (optional) MASTER_PORT - This defaults to 8080.
+  - (optional) ansible_user - Can be overridden on the CML.
+
 ## Quick Commands:
 * Provision Jenkins Master:
 ```
@@ -89,6 +107,6 @@ ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!
 
 * Provision Jenkins Slave:
 ```
-ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@ MASTER_IP=10.0.0.98" jenkins-slave.yml --tags="slave" -vvv
+ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@ MASTER_HOSTNAME=10.0.0.98 AGENT_NAME=windows-agent-01" jenkins-slave.yml --tags="slave" -vvv
 ```
 
