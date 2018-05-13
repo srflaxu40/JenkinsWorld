@@ -62,6 +62,7 @@ SCRIPT
     l.vm.hostname = "localhost"
   end
 
+  config.vm.synced_folder "awx-test/awx_persist/", "/opt/aws_projects"
 
   config.vm.provision :docker
   config.vm.provision :docker_compose
