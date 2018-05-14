@@ -8,11 +8,13 @@
   with_items:
   - directx
   - dotnetcore-sdk
+  - git
   - jfrog-cli
   - jre8
   - javaruntime
   - kb2999226
   - python
+  - unity
   - unity-il2cpp
   - visualstudio2017professional
   - visualstudio2017-workload-nativedesktop

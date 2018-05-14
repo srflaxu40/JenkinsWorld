@@ -9,12 +9,14 @@
   #- android-sdk
   - directx
   - dotnetcore-sdk
+  - git
   - jfrog-cli
   - jre8
   - javaruntime
   - jenkins
   - kb2999226
   - python
+  - unity
   - unity-il2cpp
   #- vcredist-all
   - visualstudio2017professional

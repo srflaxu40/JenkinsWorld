@@ -7,14 +7,22 @@ bad ass automation.
 
 *Plus* - do it all with Ansible AWX, Artifactory, and ELK for testing.
 
+*Plus* - Use Unity3D Editor to supply a serial number, and build your unity players on your Jenkins slaves.
+
 # Table of Contents
 
    * [JenkinsWorld](#jenkinsworld)
+   * [Table of Contents](#table-of-contents)
       * [Setup](#setup)
       * [Setting up your local virtualenv](#setting-up-your-local-virtualenv)
       * [Running Vagrant:](#running-vagrant)
       * [Windows:](#windows)
+      * [Jenkins Master:](#jenkins-master)
+      * [Jenkins Slave:](#jenkins-slave)
+      * [Quick Commands:](#quick-commands)
+      * [Unity3D:](#unity3d)
 
+----
 
 ## Setup
 
@@ -110,3 +118,4 @@ ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!
 ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@ MASTER_HOSTNAME=10.0.0.98 AGENT_NAME=windows-agent-01" jenkins-slave.yml --tags="slave" -vvv
 ```
 
+## Unity3D:

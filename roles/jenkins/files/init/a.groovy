@@ -4,7 +4,25 @@ import java.util.logging.Logger
 def logger = Logger.getLogger("")
 def initialized = false
 
-def pluginArr = ["job-dsl", "p4", "dotnet-as-script", "naginator", "global-slack-notifier", "role-strategy", "active-directory", "uno-choice", "flexible-publish", "test-results-analyzer", "nested-view", "windows-slaves", "rebuild", "jobConfigHistory", "build-history-metrics-plugin", "unity3d-plugin", "workflow-aggregator"]
+def pluginArr = ["active-directory",
+                 "build-history-metrics-plugin",
+                 "dotnet-as-script",
+                 "flexible-publish",
+                 "git",
+                 "github",
+                 "global-slack-notifier",
+                 "jobConfigHistory",
+                 "job-dsl",
+                 "nested-view",
+                 "naginator",
+                 "p4",
+                 "rebuild",
+                 "role-strategy",
+                 "test-results-analyzer",
+                 "uno-choice",
+                 "unity3d-plugin",
+                 "windows-slaves",
+                 "workflow-aggregator"]
 
 def plugins = pluginArr
 
