@@ -13,9 +13,10 @@ bad ass automation.
 
    * [JenkinsWorld](#jenkinsworld)
    * [Table of Contents](#table-of-contents)
-      * [Setup](#setup)
+   * [Setup](#setup)
       * [Setting up your local virtualenv](#setting-up-your-local-virtualenv)
-      * [Running Vagrant:](#running-vagrant)
+   * [Vagrant:](#vagrant)
+   * [Jenkins:](#jenkins)
       * [Windows:](#windows)
       * [Jenkins Master:](#jenkins-master)
       * [Jenkins Slave:](#jenkins-slave)
@@ -24,7 +25,7 @@ bad ass automation.
 
 ----
 
-## Setup
+# Setup
 
 * This repo expects you've installed [Homebrew](https://brew.sh/).
 * This repo expects that you have installed [Docker for Mac](https://docs.docker.com/docker-for-mac/install/) or [Docker for Windows](https://www.docker.com/docker-windows).
@@ -53,7 +54,7 @@ eval "$(pyenv virtualenv-init -)"
 pip install requirements.txt
 ```
 
-## Running Vagrant:
+# Vagrant:
 * [Vagrant Installation](https://www.vagrantup.com/docs/installation/).
 * Before running vagrant up please create a `.env` file and set the following variables:
 ```
@@ -76,6 +77,31 @@ pip install requirements.txt
   - username: *admin*
   - password: *password*
 * [P4 Server](127.0.0.1)
+
+# Jenkins:
+
+     Jenkins jobs are part of configuration management and loaded by Ansible.  The Jenkins master is restarted, and scripts under
+the init.d.groovy directory are dynamically run.  This then populates pipeline jobs using Jenkins Job DSL, and Jenkinsfiles pulled from
+the pipelines directory at the root of this repository.  The code in Ansible that copies the groovy scripts over to the Jenkinws Windows
+machine is under the `roles/jenkins/tasks/jenkins-master-windows.yml ` task here:
+```
+ 58 - name: Create init.d groovy dir
+ 59   win_file:
+ 60     path: C:\Program Files (x86)\Jenkins\init.groovy.d
+ 61     state: directory
+ 62 
+ 63 - name: Copy to init.d.groovy
+ 64   win_copy:
+ 65     force: yes
+ 66     src: init/a.groovy
+ 67     dest: C:\Program Files (x86)\Jenkins\init.groovy.d\a.groovy
+ 68 
+ 69 - name: Copy to init.d.groovy
+ 70   win_copy:
+ 71     force: yes
+ 72     src: init/b.groovy
+ 73     dest: C:\Program Files (x86)\Jenkins\init.groovy.d\b.groovy
+```
 
 ## Windows:
 * This requres you install the pywinrm module in requirements.txt
@@ -119,3 +145,4 @@ ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!
 ```
 
 ## Unity3D:
+* Unity plugin and the IL2CPP backend are installed onto both the master and slaves.
