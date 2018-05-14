@@ -21,6 +21,11 @@ unless Vagrant.has_plugin?("vagrant-docker-login")
   puts "vagrant-docker-login installed, please try the command again."
 end
 
+unless Vagrant.has_plugin?("vagrant-triggers")
+  system("vagrant plugin install vagrant-triggers")
+  puts "vagrant-triggers installed, please try the command again."
+end
+
 Vagrant.configure("2") do |config|
 
   config.env.enable #enabled 
@@ -50,6 +55,7 @@ sudo chmod 777 /awx-test
 SCRIPT
 
   #config.vm.provision "file", source: "config/elasticsearch.yml", destination: "elasticsearch.yml"
+  #config.vm.synced_folder "awx-test/awx_persist/", "/opt/awx_projects", owner: "root", group: "root"
 
   config.vm.provision "shell", inline: $script, run: "always"
   config.vm.provision "shell", inline: $ansible
@@ -61,8 +67,6 @@ SCRIPT
   config.vm.define "localhost" do |l|
     l.vm.hostname = "localhost"
   end
-
-  config.vm.synced_folder "awx-test/awx_persist/", "/opt/aws_projects"
 
   config.vm.provision :docker
   config.vm.provision :docker_compose
