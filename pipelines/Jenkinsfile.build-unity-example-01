@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                git branch: 'my_specific_branch',
+                    url: 'https://github.com/richard3d/LSystem'
             }
         }
         stage('Test') {
