@@ -104,7 +104,7 @@ Jenkins jobs are part of configuration management and loaded by Ansible.  The Je
 
 ## Windows:
 * This requres you install the pywinrm module in requirements.txt
-* For windows machines you need to follow the directions outlined in docs/WINDOWS-README.md in order to setup WinRM as a service, and enable basic auth.
+* For windows machines you need to follow the directions outlined in **docs/WINDOWS-README.md** in order to setup WinRM as a service, and enable basic auth.
 * The window-hosts file outlines hosts in order to provision.
 * You must ensure ansible fact gathering is enabled (in windows-hosts).
 * The following roles support windows provisioning:
