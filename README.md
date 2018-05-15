@@ -22,6 +22,7 @@ bad ass automation.
       * [Jenkins Slave:](#jenkins-slave)
       * [Quick Commands:](#quick-commands)
       * [Unity3D:](#unity3d)
+   * [Credits:](#credits)
 
 ----
 
@@ -146,3 +147,11 @@ ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!
 
 ## Unity3D:
 * Unity plugin and the IL2CPP backend are installed onto both the master and slaves.
+* The Jenkinsfile under the `./pipelines/` directory has the build command to execute a headless build of Richard Beckerr's Unity Tree Rendering  Project.
+
+----
+
+# Credits:
+* [geerlingguy/awx-container](https://github.com/geerlingguy/awx-container).
+* [mattgruter/artifactory](https://hub.docker.com/r/mattgruter/artifactory/).
+* [noonien/perforce](https://hub.docker.com/r/noonien/perforce-server/tags/).
