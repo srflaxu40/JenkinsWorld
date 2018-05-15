@@ -74,7 +74,7 @@ pip install requirements.txt
 
 * You can now browse to the following sites:
 * [Artifactory](127.0.0.1)
-* [Ansible AWX](127.0.0.1:80) - 127.0.0.1:
+* [Ansible AWX](http://127.0.0.1:8081/#/login) - http://127.0.0.1:8081/#/login
   - username: *admin*
   - password: *password*
 * [P4 Server](127.0.0.1)
