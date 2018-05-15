@@ -60,7 +60,7 @@ pip install requirements.txt
 * Before running vagrant up please create a `.env` file and set the following variables:
 ```
   1 
-  2 # These are for boot up of Vagrant
+  2 # These are for boot up of Vagrant - Put YOUR DOCKERHUB CREDS (do not ever check this in)
   3 DOCKER_USERNAME="pdinklage"
   4 DOCKER_PASSWORD="bigdaddy"
   5 
