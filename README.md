@@ -31,6 +31,7 @@ bad ass automation.
 * This repo expects you've installed [Homebrew](https://brew.sh/).
 * This repo expects that you have installed [Docker for Mac](https://docs.docker.com/docker-for-mac/install/) or [Docker for Windows](https://www.docker.com/docker-windows).
 * This expects you have at least one or two Windows Work Stations or Desktops running; this project used VirtualBox and Windows 10.
+  * One will be your Jenkins Master and the other your Jenkins Slave.
 
 ## Setting up your local virtualenv
 1. Install [PyEnv](https://github.com/pyenv/pyenv#homebrew-on-mac-os-x)
