@@ -81,10 +81,8 @@ pip install requirements.txt
 
 # Jenkins:
 
-     Jenkins jobs are part of configuration management and loaded by Ansible.  The Jenkins master is restarted, and scripts under
-the init.d.groovy directory are dynamically run.  This then populates pipeline jobs using Jenkins Job DSL, and Jenkinsfiles pulled from
-the pipelines directory at the root of this repository.  The code in Ansible that copies the groovy scripts over to the Jenkinws Windows
-machine is under the `roles/jenkins/tasks/jenkins-master-windows.yml ` task here:
+Jenkins jobs are part of configuration management and loaded by Ansible.  The Jenkins master is restarted, and scripts under the init.d.groovy directory are dynamically run.  This then populates pipeline jobs using Jenkins Job DSL, and Jenkinsfiles pulled from the pipelines directory at the root of this repository.  The code in Ansible that copies the groovy scripts over to the Jenkinws Windows machine is under the `roles/jenkins/tasks/jenkins-master-windows.yml`task here:
+
 ```
  58 - name: Create init.d groovy dir
  59   win_file:
