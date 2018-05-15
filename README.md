@@ -17,7 +17,7 @@ bad ass automation.
       * [Setting up your local virtualenv](#setting-up-your-local-virtualenv)
    * [Vagrant:](#vagrant)
    * [Jenkins:](#jenkins)
-      * [Windows:](#windows)
+      * [Windows Setup:](#windows Setup)
       * [Jenkins Master:](#jenkins-master)
       * [Jenkins Slave:](#jenkins-slave)
       * [Quick Commands:](#quick-commands)
@@ -79,18 +79,6 @@ pip install requirements.txt
   - password: *password*
 * [P4 Server](127.0.0.1)
 
-## Windows Setup:
-* This requres you install the pywinrm module in requirements.txt
-* For windows machines you need to follow the directions outlined in **docs/WINDOWS-README.md** in order to setup WinRM as a service, and enable basic auth.
-* The **window-hosts** file outlines hosts in order to provision.
-* You must ensure ansible fact gathering is enabled (in windows-hosts).
-* The following roles support windows provisioning:
-  - Jenkins
-* Example of provisioning a remote Windows server over WinRM; notice we set our basic auth password for our windows user on the CML; Other auth mechanisms such as Kerberos, AD exist:
-```
-ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@" jenkins-master.yml --tags="master" -vvv
-```
-
 # Jenkins:
 
 Jenkins jobs are part of configuration management and loaded by Ansible.  The Jenkins master is restarted, and scripts under the init.d.groovy directory are dynamically run.  This then populates pipeline jobs using Jenkins Job DSL, and Jenkinsfiles pulled from the pipelines directory at the root of this repository.  The code in Ansible that copies the groovy scripts over to the Jenkinws Windows machine is under the `roles/jenkins/tasks/jenkins-master-windows.yml`task here:
@@ -112,6 +100,18 @@ Jenkins jobs are part of configuration management and loaded by Ansible.  The Je
  71     force: yes
  72     src: init/b.groovy
  73     dest: C:\Program Files (x86)\Jenkins\init.groovy.d\b.groovy
+```
+
+## Windows Setup:
+* This requres you install the pywinrm module in requirements.txt
+* For windows machines you need to follow the directions outlined in **docs/WINDOWS-README.md** in order to setup WinRM as a service, and enable basic auth.
+* The **window-hosts** file outlines hosts in order to provision.
+* You must ensure ansible fact gathering is enabled (in windows-hosts).
+* The following roles support windows provisioning:
+  - Jenkins
+* Example of provisioning a remote Windows server over WinRM; notice we set our basic auth password for our windows user on the CML; Other auth mechanisms such as Kerberos, AD exist:
+```
+ansible-playbook -i windows-hosts -e "target=jknepper ansible_password=asdfio12!@" jenkins-master.yml --tags="master" -vvv
 ```
 
 ## Jenkins Master:
