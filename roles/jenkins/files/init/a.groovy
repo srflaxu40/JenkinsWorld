@@ -22,7 +22,8 @@ def pluginArr = ["active-directory",
                  "uno-choice",
                  "unity3d-plugin",
                  "windows-slaves",
-                 "workflow-aggregator"]
+                 "workflow-aggregator",
+                 "workflow-durable-task-step"]
 
 def plugins = pluginArr
 

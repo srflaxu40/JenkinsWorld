@@ -36,6 +36,13 @@
     src: slave-connect-02.ps1
     dest: C:\Program Files (x86)\Java\slave-connect.ps1
 
+- name: Create directory for Unity project
+  win_file:
+    path: C:\Program Files\unity-example-01
+    state: directory
+
+#- name: Create Unity project
+#  win_shell: "C:\Program Files\Unity\Editor\Unity.exe" -createProject
 
 - name: Run jar and connect to Jenkins master
   win_shell:  .\slave-connect.ps1
