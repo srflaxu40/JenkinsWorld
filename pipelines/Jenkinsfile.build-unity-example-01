@@ -7,7 +7,9 @@ pipeline {
                 echo 'Building..'
                 git branch: 'master',
                     url: 'https://github.com/richard3d/LSystem'
-                bash "ls -l"
+                bash '''#!/bin/bash
+                        ls -l
+                '''
             }
         }
         stage('Test') {
