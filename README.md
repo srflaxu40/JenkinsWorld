@@ -7,7 +7,7 @@ bad ass automation.
 
 *Plus* - do it all with **Ansible AWX**, **Artifactory**, and **ELK** for testing.
 
-*Plus* - Use **Unity3D** Editor with the **free personal / education** license, and build your unity players on your Jenkins slaves.
+*Plus* - Use **Unity3D** Editor with the **free personal / education** license, and build your unity projects on your Jenkins slaves.
 
 # Table of Contents
 
