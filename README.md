@@ -1,13 +1,13 @@
 # JenkinsWorld
 
-Jenkins on a Windows Master / slave model using Ansible.
+Jenkins on a Windows Master / Slave model using Ansible.
 
 Run, and provision Jenkins with examples of bootstrapping jobs as code using init.groovy.d, Job DSL, and Jenkins Pipeline Plugin for 
 bad ass automation.
 
-*Plus* - do it all with Ansible AWX, Artifactory, and ELK for testing.
+*Plus* - do it all with **Ansible AWX**, **Artifactory**, and **ELK** for testing.
 
-*Plus* - Use Unity3D Editor with the free personal / education license, and build your unity players on your Jenkins slaves.
+*Plus* - Use **Unity3D** Editor with the **free personal / education** license, and build your unity players on your Jenkins slaves.
 
 # Table of Contents
 
