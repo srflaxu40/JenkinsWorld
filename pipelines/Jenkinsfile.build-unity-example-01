@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 git branch: 'master',
                     url: 'https://github.com/richard3d/LSystem'
-                sh '''
+                bat '''
                     ls -l
                 '''
             }
