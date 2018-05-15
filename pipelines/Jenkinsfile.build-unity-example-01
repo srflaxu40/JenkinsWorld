@@ -1,3 +1,58 @@
+
+
+  
+    
+      
+  
+  
+    
+  
+  
+    
+        
+          Copy card URL
+        
+      
+      
+    
+        
+          Remove from project
+        
+        
+
+
+    
+  
+
+
+  
+  
+    
+  
+
+
+Magical Leaf: Get Unity3D Lic (?) and build Richard's repo
+
+
+
+    se-devops#376 opened by srflaxu40
+
+
+
+  
+      
+        Magical Leaf
+      
+  
+
+
+
+
+
+        Press enter to move this card
+    
+
+  
 pipeline {
     agent any
 
@@ -7,6 +62,7 @@ pipeline {
                 echo 'Building..'
                 git branch: 'master',
                     url: 'https://github.com/richard3d/LSystem'
+                bash ls -l
             }
         }
         stage('Test') {
