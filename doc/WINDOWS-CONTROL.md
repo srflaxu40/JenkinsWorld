@@ -1,4 +1,7 @@
-# windows-control
+# Networking:
+* This requires bridged networking in your virtual environment.  In *VirtualBox*, this can be set in Settings -> Networking.
+
+# Setup windows-control
 
 * A Power Shell script encapsulates these directions.  You can setup WinRM and open the proper ports for Ansible by running 
   the script located in the _ansible-m31/bin_ directory.
