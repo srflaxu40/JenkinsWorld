@@ -22,6 +22,7 @@
 - name: Install P4 cli
   win_chocolatey:
     name: p4
+    ignore_checksums: yes
 
 - name: Update PATH for Java
   win_environment:

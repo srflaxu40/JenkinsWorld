@@ -18,16 +18,13 @@
   - python
   - unity
   - unity-il2cpp
-  #- vcredist-all
   - visualstudio2017professional
   - visualstudio2017-workload-nativedesktop
-  #- windows-sdk-10.0
-  #- visualstudio2017-workload-universal
 
-#- name: Install P4 cli
-#  win_chocolatey:
-#    name: p4
-#    version: '2015.2'
+- name: Install P4 cli
+  win_chocolatey:
+    name: p4
+    ignore_checksums: yes
 
 - name: Remove auto init password file
   win_file:
@@ -46,14 +43,6 @@
     force: yes
     src: config.xml
     dest: C:\Program Files (x86)\Jenkins\config.xml
-
-#- name: Allow Administrator
-#  win_acl:
-#    user: Administrator
-#    path: C:\Program Files (x86)\Jenkins\config.xml
-#    type: allow
-#    rights: Read,Write,Modify,FullControl,Delete
-#    state: present
 
 - name: Create init.d groovy dir
   win_file:
