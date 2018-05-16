@@ -9,7 +9,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat 'dir'
                 git branch: 'master',
                     url: 'https://github.com/richard3d/LSystem'
                 bat ''' 
