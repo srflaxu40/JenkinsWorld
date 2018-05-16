@@ -24,5 +24,5 @@ winrm quickconfig
 
 * Test your connection with ansible ad-hoc:
 ```
-ansible johnson-windows -m win_ping  -i hosts --extra-vars "ansible_password=******"
+ansible jenkins-master -m win_ping  -i windows-hosts --extra-vars "ansible_password=Abc12345"
 ```
