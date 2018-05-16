@@ -14,7 +14,7 @@ pipeline {
                     url: 'https://github.com/richard3d/LSystem'
                 bat ''' 
                     "C:\\Program Files\\Unity\\Editor\\Unity.exe" -quit -batchmode -projectPath "%WORKSPACE%" -buildWindows64Player "C:\\bin\\richie.exe" -logFile "%WORKSPACE%\\%BUILD_NUMBER%.out"
-                    cat "%WORKSPACE%\\%BUILD_NUMBER%.out"
+                    type "%WORKSPACE%\\%BUILD_NUMBER%.out"
                 ''' 
             }   
         }   
