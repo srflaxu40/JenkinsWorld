@@ -4,7 +4,6 @@ pipeline {
     agent any
    stages {
         stage ('Load Groovy Script') {
-          echo 'Get groovy script'
           git branch: 'master',
               url: 'https://github.com/srflaxu40/JenkinsWorld'
 
