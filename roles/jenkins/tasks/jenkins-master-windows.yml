@@ -44,6 +44,12 @@
     src: config.xml
     dest: C:\Program Files (x86)\Jenkins\config.xml
 
+- name: Copy pre approved scripts
+  win_copy:
+    force: yes
+    src: scriptApproval.xml
+    dest: C:\Program Files (x86)\Jenkins\scriptApproval.xml
+
 - name: Create init.d groovy dir
   win_file:
     path: C:\Program Files (x86)\Jenkins\init.groovy.d
