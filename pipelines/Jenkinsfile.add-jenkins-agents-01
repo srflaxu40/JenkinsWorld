@@ -13,9 +13,10 @@ pipeline {
    stages {
 
      stage ('Load Groovy Script') {
-        steps {
+        node {
           git branch: 'master',
              url: 'https://github.com/srflaxu40/JenkinsWorld'
+
           def extMethod = load 'pipelines/add-agent.groovy'
           extMethod.addNode(${params.AgentHome}, ${params.AgentExecutors}, ${params.AgentDescription}, ${params.AgentName})
         }
