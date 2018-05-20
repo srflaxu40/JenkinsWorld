@@ -38,7 +38,6 @@ Jenkins.instance.nodes.each {
 }
 */
 
-return [
-    addNode: this.&addNode
-]
+return this;
+
 
