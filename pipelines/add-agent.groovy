@@ -23,7 +23,7 @@ def addNode (String AgentHome, String AgentExecutors, String AgentDescription, S
             AgentDescription,           // Agent description
             AgentHome,                  // Workspace on the agent's computer
             AgentExecutors,             // Number of executors
-            Mode.EXCLUSIVE,             // "Usage" field, EXCLUSIVE is "only tied to node", NORMAL is "any"
+            "any",             // "Usage" field, EXCLUSIVE is "only tied to node", NORMAL is "any"
             AgentName,                         // Labels
             new JNLPLauncher(),         // Launch strategy, JNLP is the Java Web Start setting services use
             RetentionStrategy.INSTANCE) // Is the "Availability" field and INSTANCE means "Always"
