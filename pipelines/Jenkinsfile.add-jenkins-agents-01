@@ -18,7 +18,7 @@ pipeline {
              url: 'https://github.com/srflaxu40/JenkinsWorld'
            script {
               def extMethod = load 'pipelines/add-agent.groovy'
-              extMethod.addNode(${params.AgentHome}, ${params.AgentExecutors}, ${params.AgentDescription}, ${params.AgentName})
+              extMethod.addNode(params.AgentHome, params.AgentExecutors, params.AgentDescription, params.AgentName)
            }
         }
      }
