@@ -11,6 +11,7 @@ def pluginArr = ["active-directory",
                  "git",
                  "github",
                  "global-slack-notifier",
+                 "groovy",
                  "jobConfigHistory",
                  "job-dsl",
                  "nested-view",
@@ -23,6 +24,7 @@ def pluginArr = ["active-directory",
                  "unity3d-plugin",
                  "windows-slaves",
                  "workflow-aggregator",
+                 "workflow-cps",
                  "workflow-durable-task-step"]
 
 def plugins = pluginArr
