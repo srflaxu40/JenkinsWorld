@@ -29,7 +29,7 @@ def addNode (String AgentHome, String AgentExecutors, String AgentDescription, S
             RetentionStrategy.INSTANCE) // Is the "Availability" field and INSTANCE means "Always"
 
     Jenkins.instance.addNode(dumb)
-    println "Agent '$it' created with $agentExecutors executors and home '$agentHome'"
+    println "Agent '$AgentName' created with $agentExecutors executors and home '$AgentHome'"
 
 }
 /*
