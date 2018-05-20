@@ -1,24 +1,25 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
+   agent any
+
+   parameters {
+       string(name: 'AgentList', defaultValue: 'windows-agent-01', description: 'Jenkins Build Agent Name')
+       string(name: 'AgentDescription', defaultValue: 'windows-agent-01', description: 'windows build agent')
+       string(name: 'AgentHome', defaultValue: '', description: 'Jenkins Agent Home')
+       string(name: 'AgentExecutors', defaultValue: '5', description: 'Number of executors')
+   }
+
    stages {
-       stage ('Load Groovy Script') {
-         git branch: 'master',
-             url: 'https://github.com/srflaxu40/JenkinsWorld'
 
-        parameters {
-            string(name: 'AgentList', defaultValue: 'windows-agent-01', description: 'Jenkins Build Agent Name')
-            string(name: 'AgentDescription', defaultValue: 'windows-agent-01', description: 'windows build agent')
-            string(name: 'AgentHome', defaultValue: '', description: 'Jenkins Agent Home')
-            string(name: 'AgentExecutors', defaultValue: '5', description: 'Number of executors')
-        }
-
+     stage ('Load Groovy Script') {
         steps {
-            load 'pipelines/add-agent.groovy'
+          git branch: 'master',
+             url: 'https://github.com/srflaxu40/JenkinsWorld'
+          load 'pipelines/add-agent.groovy'
         }
      }
 
-    }
+   }
 }
 
