@@ -4,7 +4,7 @@ pipeline {
    agent any
 
    parameters {
-       string(name: 'AgentList', defaultValue: 'windows-agent-01', description: 'Jenkins Build Agent Name')
+       string(name: 'AgentName', defaultValue: 'windows-agent-01', description: 'Jenkins Build Agent Name')
        string(name: 'AgentDescription', defaultValue: 'windows-agent-01', description: 'windows build agent')
        string(name: 'AgentHome', defaultValue: '', description: 'Jenkins Agent Home')
        string(name: 'AgentExecutors', defaultValue: '5', description: 'Number of executors')
@@ -16,7 +16,8 @@ pipeline {
         steps {
           git branch: 'master',
              url: 'https://github.com/srflaxu40/JenkinsWorld'
-          load 'pipelines/add-agent.groovy'
+          def extMethod = load 'pipelines/add-agent.groovy'
+          extMethod.addNode(${params.AgentHome}, ${params.AgentExecutors}, ${params.AgentDescription}, ${params.AgentName})
         }
      }
 
