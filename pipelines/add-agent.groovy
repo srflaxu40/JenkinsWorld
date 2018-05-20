@@ -25,8 +25,8 @@ def addNode (String AgentHome, String AgentExecutors, String AgentDescription, S
             AgentExecutors,             // Number of executors
             "any",             // "Usage" field, EXCLUSIVE is "only tied to node", NORMAL is "any"
             AgentName,                         // Labels
-            "",         // Launch strategy, JNLP is the Java Web Start setting services use
-            "Always") // Is the "Availability" field and INSTANCE means "Always"
+            new JNLPLauncher(),         // Launch strategy, JNLP is the Java Web Start setting services use
+            RetentionStrategy.INSTANCE) // Is the "Availability" field and INSTANCE means "Always"
 
     Jenkins.instance.addNode(dumb)
     println "Agent '$it' created with $agentExecutors executors and home '$agentHome'"
