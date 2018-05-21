@@ -1,0 +1,20 @@
+[Unit]
+Description=Artifactory Service
+After=docker.item
+Requires=docker.item
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm --name %p \
+                   -v /artifactory/data \
+                   -v /artifactory/logs \
+                   -v /artifactory/backup \
+                   -p 8082:8080 \
+                   mattgruter/artifactory
+ 
+[Install]
+WantedBy=multi-user.target
