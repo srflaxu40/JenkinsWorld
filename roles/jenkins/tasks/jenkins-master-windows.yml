@@ -26,6 +26,11 @@
     name: p4
     ignore_checksums: yes
 
+- name: Create build directory
+  win_file:
+    path: C:\Jenkins\workspace
+    state: directory
+
 - name: Remove auto init password file
   win_file:
     force: yes

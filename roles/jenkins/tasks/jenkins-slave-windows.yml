@@ -24,6 +24,11 @@
     name: p4
     ignore_checksums: yes
 
+- name: Create build directory
+  win_file:
+    path: C:\Jenkins\workspace
+    state: directory
+
 - name: Update PATH for Java
   win_environment:
     state: present
