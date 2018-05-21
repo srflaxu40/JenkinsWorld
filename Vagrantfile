@@ -50,7 +50,10 @@ sudo apt-get update
 sudo apt-get install -y ansible
 
 sudo mkdir /awx-test
+sudo mkdir /artifactory
+
 sudo chmod 777 /awx-test
+sudo chmod 777 /artifactory
 
 SCRIPT
 

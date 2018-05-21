@@ -30,6 +30,14 @@
     owner: root
     group: root
 
+- name: Copy unit files
+  copy: 
+    src: artifactory.service 
+    dest: /etc/systemd/system/artifactory.service 
+    mode: 0755
+    owner: root
+    group: root
+
 - name: Enable units
   systemd:
     name: "{{ item }}"
