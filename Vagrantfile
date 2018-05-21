@@ -113,6 +113,7 @@ SCRIPT
   config.vm.network "private_network", ip: "10.0.2.15"
   config.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "127.0.0.1"
   config.vm.network "forwarded_port", guest: 1666, host: 1666, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 8082, host: 8082, host_ip: "127.0.0.1"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
