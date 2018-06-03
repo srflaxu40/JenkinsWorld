@@ -1,5 +1,9 @@
 pipeline {
-    agent windows-agent-01
+    agent {
+       node {
+           label 'windows-agent-01'
+       }
+    }
 
     stages {
         stage('Build') {
