@@ -5,6 +5,7 @@ def logger = Logger.getLogger("")
 def initialized = false
 
 def pluginArr = ["active-directory",
+                 "artifactory",
                  "build-history-metrics-plugin",
                  "dotnet-as-script",
                  "flexible-publish",
