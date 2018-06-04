@@ -67,7 +67,7 @@ pipeline {
                    def uploadSpec = """{
                     "files": [
                      {
-                         "pattern": "c:/${env.BUILD_NUMBER}-results.txt",
+                         "pattern": "C:/${env.BUILD_NUMBER}-results.txt",
                          "target": "unity/"
                      }
                      ]
