@@ -53,13 +53,13 @@ pipeline {
                 echo 'Write results to CSV for Tableau'
 
                 script {
-                   def file1 = new File("${env.WORKSPACE}/${env.BUILD_NUMBER}-results.txt")
+                   def file1 = new File("C:/bin/${env.BUILD_NUMBER}-results.txt")
 
                    file1.write "Build No.,Build Result,Build Date,Jenkins URL"
-                   file1.append "%BUILD_NUMBER%,1,%BUILD_DATE%,%JENKINS_URL%"
-                   file1.append "%BUILD_NUMBER%,2,%BUILD_DATE%,%JENKINS_URL%"
-                   file1.append "%BUILD_NUMBER%,0,%BUILD_DATE%,%JENKINS_URL%"
-                   file1.append "%BUILD_NUMBER%,3,%BUILD_DATE%,%JENKINS_URL%"
+                   file1.append "${env.BUILD_NUMBER},1,${env.BUILD_DATE},${env.JENKINS_URL}"
+                   file1.append "${env.BUILD_NUMBER},0,${env.BUILD_DATE},${env.JENKINS_URL}"
+                   file1.append "${env.BUILD_NUMBER},3,${env.BUILD_DATE},${env.JENKINS_URL}"
+                   file1.append "${env.BUILD_NUMBER},2,${env.BUILD_DATE},${env.JENKINS_URL}"
   
                    def server = Artifactory.newServer('http://10.0.0.11:8082/artifactory', 'admin', 'password')
 
