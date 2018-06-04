@@ -68,7 +68,7 @@ pipeline {
                     "files": [
                      {
                          "pattern": "c:/${env.BUILD_NUMBER}-results.txt",
-                         "target": "unity/results/"
+                         "target": "unity/"
                      }
                      ]
                    }"""
