@@ -17,7 +17,7 @@ pipeline {
                 ''' 
 
                 script {
-                    def server = Artifactory.newServer url: 'http://10.0.0.11:8082'
+                    def server = Artifactory.server 'artifactory'
 
                     def uploadSpec = """{
                      "files": [
