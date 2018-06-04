@@ -61,7 +61,18 @@ pipeline {
                    file1.append "%BUILD_NUMBER%,0,%BUILD_DATE%,%JENKINS_URL%"
                    file1.append "%BUILD_NUMBER%,3,%BUILD_DATE%,%JENKINS_URL%"
   
-                   file1.close()
+                   def server = Artifactory.newServer('http://10.0.0.11:8082/artifactory', 'admin', 'password')
+
+                   def uploadSpec = """{
+                    "files": [
+                     {
+                         "pattern": "*txt",
+                         "target": "unity/results"
+                     }
+                     ]
+                   }"""
+
+                   def buildInfo = server.upload(uploadSpec)
                 }   
             }   
         }   
