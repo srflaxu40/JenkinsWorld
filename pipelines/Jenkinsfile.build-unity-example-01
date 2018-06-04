@@ -17,7 +17,7 @@ pipeline {
                 ''' 
 
                 script {
-                    def server = Artifactory.server 'artifactory'
+                    def server = Artifactory.newServer('http://10.0.0.11:8082/artifactory', 'admin', 'password')
 
                     def uploadSpec = """{
                      "files": [
@@ -28,8 +28,8 @@ pipeline {
                       ]
                     }"""
 
-                    def buildInfo = server.upload(uploadSpec)
-                    server.publishBuildInfo buildInfo
+                    //def buildInfo = server.upload(uploadSpec)
+                    //server.publishBuildInfo buildInfo
                 }   
 
             }   
