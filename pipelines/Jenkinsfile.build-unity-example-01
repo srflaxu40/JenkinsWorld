@@ -54,7 +54,7 @@ pipeline {
 
                 script {
 
-                   def file1 = new File("c:/bin/${env.BUILD_NUMBER}-results.txt")
+                   def file1 = new File("c:\bin\${env.BUILD_NUMBER}-results.txt")
 
                    file1.write "Build No.,Build Result,Build Date,Jenkins URL"
                    file1.append "${env.BUILD_NUMBER},1,${env.BUILD_DATE},${env.JENKINS_URL}"
