@@ -54,13 +54,13 @@ pipeline {
 
                 script {
 
-                   def file1 = new File("c:\\${env.BUILD_NUMBER}-results.txt")
+                   def file1 = new File("c:\${env.BUILD_NUMBER}-results.txt")
 
-                   file1.write "Build No.,Build Result,Build Date,Jenkins URL"
-                   file1.append "${env.BUILD_NUMBER},1,${env.BUILD_DATE},${env.JENKINS_URL}"
-                   file1.append "${env.BUILD_NUMBER},0,${env.BUILD_DATE},${env.JENKINS_URL}"
-                   file1.append "${env.BUILD_NUMBER},3,${env.BUILD_DATE},${env.JENKINS_URL}"
-                   file1.append "${env.BUILD_NUMBER},2,${env.BUILD_DATE},${env.JENKINS_URL}"
+                   file1.write "Build No.,Build Result,Build Date,Jenkins URL\n"
+                   file1.append "${env.BUILD_NUMBER},1,${env.BUILD_DATE},${env.JENKINS_URL}\n"
+                   file1.append "${env.BUILD_NUMBER},0,${env.BUILD_DATE},${env.JENKINS_URL}\n"
+                   file1.append "${env.BUILD_NUMBER},3,${env.BUILD_DATE},${env.JENKINS_URL}\n"
+                   file1.append "${env.BUILD_NUMBER},2,${env.BUILD_DATE},${env.JENKINS_URL}\n"
   
                    def server = Artifactory.newServer('http://10.0.0.11:8082/artifactory', 'admin', 'password')
 
