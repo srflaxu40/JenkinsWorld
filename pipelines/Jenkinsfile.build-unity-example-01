@@ -62,7 +62,7 @@ pipeline {
                    str.append("${env.BUILD_NUMBER},3,${env.BUILD_DATE},${env.JENKINS_URL}\n")
                    str.append("${env.BUILD_NUMBER},2,${env.BUILD_DATE},${env.JENKINS_URL}\n")
   
-                   fp.write(str, null)
+                   fp.write(str.toString(), null)
   
                    def server = Artifactory.newServer('http://10.0.0.11:8082/artifactory', 'admin', 'password')
 
