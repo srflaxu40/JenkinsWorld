@@ -2,14 +2,23 @@
 <scriptApproval plugin="script-security@1.44">
   <approvedScriptHashes/>
   <approvedSignatures>
+    <string>method hudson.FilePath write java.lang.String java.lang.String</string>
+    <string>method hudson.model.Computer getChannel</string>
+    <string>method java.lang.Appendable append java.lang.CharSequence</string>
     <string>method jenkins.model.Jenkins addNode hudson.model.Node</string>
+    <string>method jenkins.model.Jenkins getComputer java.lang.String</string>
+    <string>method org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildRecorder$BadgeManager getBuild</string>
+    <string>new hudson.FilePath hudson.remoting.VirtualChannel java.lang.String</string>
     <string>new hudson.slaves.DumbSlave java.lang.String java.lang.String java.lang.String java.lang.String hudson.model.Node$Mode java.lang.String hudson.slaves.ComputerLauncher hudson.slaves.RetentionStrategy</string>
     <string>new hudson.slaves.JNLPLauncher</string>
     <string>new java.io.File java.lang.String</string>
+    <string>new java.lang.StringBuilder java.lang.String</string>
     <string>staticField hudson.model.Node$Mode EXCLUSIVE</string>
     <string>staticField hudson.slaves.RetentionStrategy INSTANCE</string>
+    <string>staticMethod java.lang.System getProperty java.lang.String</string>
     <string>staticMethod jenkins.model.Jenkins getInstance</string>
     <string>staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods append java.io.File java.lang.Object</string>
+    <string>staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods getAt java.lang.Object java.lang.String</string>
     <string>staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods write java.io.File java.lang.String</string>
   </approvedSignatures>
   <aclApprovedSignatures>
