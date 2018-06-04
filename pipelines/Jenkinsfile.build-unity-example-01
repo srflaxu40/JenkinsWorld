@@ -53,7 +53,7 @@ pipeline {
                 echo 'Write results to CSV for Tableau'
 
                 script {
-                   def file1 = new File("%WORKSPACE%\%BUILD_NUMBER%-results.txt")
+                   def file1 = new File("C:/bin/%BUILD_NUMBER%-results.txt")
 
                    file1.write "Build No.,Build Result,Build Date,Jenkins URL"
                    file1.append "%BUILD_NUMBER%,1,%BUILD_DATE%,%JENKINS_URL%"
@@ -66,7 +66,7 @@ pipeline {
                    def uploadSpec = """{
                     "files": [
                      {
-                         "pattern": "%WORKSPACE%/*txt",
+                         "pattern": "c:/bin/*txt",
                          "target": "unity/results/"
                      }
                      ]
