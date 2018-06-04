@@ -53,6 +53,9 @@ pipeline {
                 echo 'Write results to CSV for Tableau'
 
                 script {
+
+                   System.getProperty("user.dir")
+
                    def file1 = new File("C:/bin/${env.BUILD_NUMBER}-results.txt")
 
                    file1.write "Build No.,Build Result,Build Date,Jenkins URL"
