@@ -13,11 +13,13 @@ bad ass automation.
 
    * [JenkinsWorld](#jenkinsworld)
    * [Table of Contents](#table-of-contents)
-   * [Setup](#setup)
+   * [Pre-Flight](#pre-flight)
       * [Setting up your local virtualenv](#setting-up-your-local-virtualenv)
    * [Vagrant:](#vagrant)
    * [Jenkins:](#jenkins)
-      * [Windows Setup:](#windows Setup)
+      * [Artifactory:](#artifactory)
+      * [Ansible AWX:](#ansible-awx)
+      * [Windows Setup:](#windows-setup)
       * [Jenkins Master:](#jenkins-master)
       * [Jenkins Slave:](#jenkins-slave)
       * [Quick Commands:](#quick-commands)
@@ -102,6 +104,16 @@ Jenkins jobs are part of configuration management and loaded by Ansible.  The Je
  71     force: yes
  72     src: init/b.groovy
  73     dest: C:\Program Files (x86)\Jenkins\init.groovy.d\b.groovy
+```
+
+## Artifactory:
+* Artifactory Professional supports the REST API, so you'll have to create your repos locally.
+
+## Ansible AWX:
+* If Ansible AWX does not come up just re-provision your VM.  This is a known bug in the AWX Docker Repo we are using where assets don't load properly.
+```
+vagrant destroy
+vagrant up
 ```
 
 ## Windows Setup:
