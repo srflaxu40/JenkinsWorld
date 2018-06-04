@@ -54,8 +54,7 @@ pipeline {
 
                 script {
 
-                   def channel = manager.build.workspace.channel;
-                   fp = new hudson.FilePath(channel, manager.build.workspace.toString() + "\\${env.BUILD_NUMBER}-results.txt")
+                   fp = new hudson.FilePath(Jenkins.getInstance().getComputer(env['NODE_NAME']).getChannel(), "${env.WORKSPACE}\\${env.BUILD_NUMBER}-results.txt")
 
                    fp.write("Build No.,Build Result,Build Date,Jenkins URL\n", null)
                    fp.write("${env.BUILD_NUMBER},1,${env.BUILD_DATE},${env.JENKINS_URL}\n", null)
