@@ -108,6 +108,11 @@ Jenkins jobs are part of configuration management and loaded by Ansible.  The Je
 
 ## Artifactory:
 * Artifactory Professional supports the REST API, so you'll have to create your repos locally.
+* This can be done in the UI:
+1. Log in as admin (username: admin / password: password).
+2. Go to "Admin".
+3. Click Repositories.
+4. Create a new local repository with the defaul settings.
 
 ## Ansible AWX:
 * If Ansible AWX does not come up just re-provision your VM.  This is a known bug in the AWX Docker Repo we are using where assets don't load properly.
