@@ -56,11 +56,13 @@ pipeline {
 
                    fp = new hudson.FilePath(Jenkins.getInstance().getComputer(env['NODE_NAME']).getChannel(), "${env.WORKSPACE}\\${env.BUILD_NUMBER}-results.txt")
 
-                   fp.write("Build No.,Build Result,Build Date,Jenkins URL\n", null)
-                   fp.write("${env.BUILD_NUMBER},1,${env.BUILD_DATE},${env.JENKINS_URL}\n", null)
-                   fp.write("${env.BUILD_NUMBER},0,${env.BUILD_DATE},${env.JENKINS_URL}\n", null)
-                   fp.write("${env.BUILD_NUMBER},3,${env.BUILD_DATE},${env.JENKINS_URL}\n", null)
-                   fp.write("${env.BUILD_NUMBER},2,${env.BUILD_DATE},${env.JENKINS_URL}\n", null)
+                   StringBuilder str = new StringBuilder("Build No.,Build Result,Build Date,Jenkins URL\n");
+                   str.append("${env.BUILD_NUMBER},1,${env.BUILD_DATE},${env.JENKINS_URL}\n")
+                   str.append("${env.BUILD_NUMBER},0,${env.BUILD_DATE},${env.JENKINS_URL}\n")
+                   str.append("${env.BUILD_NUMBER},3,${env.BUILD_DATE},${env.JENKINS_URL}\n")
+                   str.append("${env.BUILD_NUMBER},2,${env.BUILD_DATE},${env.JENKINS_URL}\n")
+  
+                   fp.write(str, null)
   
                    def server = Artifactory.newServer('http://10.0.0.11:8082/artifactory', 'admin', 'password')
 
