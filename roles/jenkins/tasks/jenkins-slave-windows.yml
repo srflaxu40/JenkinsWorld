@@ -14,6 +14,8 @@
   - javaruntime
   - kb2999226
   - python
+  - sqlserver-cmdlineutils
+  - sqlserver-odbcdriver
   - unity
   - unity-il2cpp
   - visualstudio2017professional

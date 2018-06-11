@@ -82,6 +82,7 @@ pip install requirements.txt
   - username: *admin*
   - password: *password*
 * [P4 Server](127.0.0.1)
+* [MSSQL Server](127.0.0.1:1433)
 
 # Jenkins:
 
@@ -120,6 +121,25 @@ Jenkins jobs are part of configuration management and loaded by Ansible.  The Je
 vagrant destroy
 vagrant up
 ```
+
+## MSSQL Server:
+* Push metrics to MSSQL Server via Jenkins builds.
+* userid   - 'sa'
+* password - '\*Y=CsXfnr&6r\_'
+* db       - tempdb
+
+* You can create a temporary table to use with the Pipeline Job examples:
+```
+CREATE TABLE Jenkins (
+    JenkinsJobNo int,
+    JenkinsJobName varchar(255),
+    JenkinsJobMsg varchar(255),
+    JenkinsJobOrd int,
+    JenkinsJobDesc varchar(255)
+);
+```
+
+* An example of using the `SQLCMD.exe` executable installed in the `jenkins-slave.yaml` playbook is in _pipelines/Jenkins.build-unity-example-01_
 
 ## Windows Setup:
 * This requres you install the pywinrm module in requirements.txt

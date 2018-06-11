@@ -84,6 +84,7 @@ SCRIPT
 
     d.pull_images "mattgruter/artifactory:latest"
     d.pull_images "noonien/perforce-server"
+    d.pull_images "microsoft/mssql-server-linux"
 
   end
 

@@ -24,19 +24,15 @@
 
 - name: Copy unit files
   copy: 
-    src: perforce.service 
-    dest: /etc/systemd/system/perforce.service 
+    src: "{{ item }}.service"
+    dest: "/etc/systemd/system/{{ item }}.service"
     mode: 0755
     owner: root
     group: root
-
-- name: Copy unit files
-  copy: 
-    src: artifactory.service 
-    dest: /etc/systemd/system/artifactory.service 
-    mode: 0755
-    owner: root
-    group: root
+  with_items:
+    - "perforce"
+    - "artifactory"
+    - "mssql"
 
 - name: Enable units
   systemd:
@@ -46,3 +42,4 @@
   with_items:
     - "perforce"
     - "artifactory"
+    - "mssql"

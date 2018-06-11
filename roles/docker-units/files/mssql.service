@@ -1,0 +1,19 @@
+[Unit]
+Description=MSSQL Service
+After=docker.item
+Requires=docker.item
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm --name %p \
+                   -e 'SA_PASSWORD=*Y=CsXfnr&6r\_' \
+                   -e 'ACCEPT_EULA=Y' \
+                   -p 1433:1433 \
+                   microsoft/mssql-server-linux
+ 
+[Install]
+WantedBy=multi-user.target
