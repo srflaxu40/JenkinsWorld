@@ -139,6 +139,8 @@ CREATE TABLE Jenkins (
 );
 ```
 
+* For a list of global Jenkins build vars, please see [build-vars](https://wiki.jenkins.io/display/JENKINS/Global+Post+Script+Plugin).
+
 * An example of using the `SQLCMD.exe` executable installed in the `jenkins-slave.yaml` playbook is in _pipelines/Jenkins.build-unity-example-01_
 
 ## Windows Setup:
