@@ -84,7 +84,7 @@ pipeline {
             steps {
 
                 bat ''' 
-                   SQLCMD.exe -S 10.0.0.11 -U sa -P "*Y=CsXfnr&6r\_" -d tempdb -Q “INSERT dbo.Jenkins (JenkinsJobNo, JenkinsJobName, JenkinsJobMsg, JenkinsJobOrd, JenkinsJobDesc)  
+                   SQLCMD.exe -S "10.0.0.11" -U sa -P "*Y=CsXfnr&6r\_" -d tempdb -Q “INSERT dbo.Jenkins (JenkinsJobNo, JenkinsJobName, JenkinsJobMsg, JenkinsJobOrd, JenkinsJobDesc)  
     VALUES (${env.BUILD_NUMBER}, 'build-unity-example-01', 'test', ${env.BUILD_RESULT}, '${env.JOB_NAME}')”
                 ''' 
             }   
