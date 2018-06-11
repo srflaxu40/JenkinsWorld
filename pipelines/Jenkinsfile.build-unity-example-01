@@ -84,7 +84,7 @@ pipeline {
             steps {
 
                 bat ''' 
-                   "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\SQLCMD.EXE" -S 10.0.0.11 -U sa -P "*Y=CsXfnr&6r\\_" -d tempdb -Q "INSERT dbo.Jenkins (JenkinsJobNo, JenkinsJobName, JenkinsJobMsg, JenkinsJobOrd, JenkinsJobDesc) VALUES (1, 'build-unity-example-01', 'results', 2, 'build-unity-example-01')"
+                   "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\SQLCMD.EXE" -S 10.0.0.11 -U sa -P "*Y=CsXfnr&6r\\_" -d tempdb -Q INSERT dbo.Jenkins (JenkinsJobNo, JenkinsJobName, JenkinsJobMsg, JenkinsJobOrd, JenkinsJobDesc) VALUES (1, 'build-unity-example-01', 'results', 2, 'build-unity-example-01')
                 ''' 
             }   
         }   
